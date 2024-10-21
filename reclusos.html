@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Reclusos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="reclusos.css" rel="stylesheet">
+    <link href="icono.webp" rel="icon">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Sistema Carcelario</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="reclusos.html">Gestión de Reclusos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="visitas.html">Control de Visitas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="administrativo.html">Personal Administrativo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="actividades.html">Reporte de Actividades</a>
+                    </li>
+                </ul>
+                <a class="nav-link btn btn-danger text-white" href="index.html">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Gestión de Reclusos</h2>
+            <!-- Formulario para agregar reclusos -->
+            <form id="reclusos-form" class="row g-3 mb-4">
+                <input type="hidden" id="index" name="index">
+
+                <div class="col-md-6">
+                    <label for="nombreRecluso" class="form-label">Nombre del Recluso</label>
+                    <input type="text" class="form-control" id="nombreRecluso" name="nombreRecluso" required>
+                </div>
+                
+                <div class="col-md-6">
+                    <label for="idRecluso" class="form-label">Identificación del Recluso</label>
+                    <input type="text" class="form-control" id="idRecluso" name="idRecluso" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="añosCondena" class="form-label">Años de Condena</label>
+                    <input type="number" class="form-control" id="añosCondena" name="añosCondena" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="delito" class="form-label">Delito</label>
+                    <input type="text" class="form-control" id="delito" name="delito" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="fechaIngreso" class="form-label">Fecha de Ingreso</label>
+                    <input type="date" class="form-control" id="fechaIngreso" name="fechaIngreso" required>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Agregar Recluso</button>
+                </div>
+            </form>
+        
+            <!-- Tabla de reclusos -->
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nombre del Recluso</th>
+                        <th>Identificación</th>
+                        <th>Años de Condena</th>
+                        <th>Delito</th>
+                        <th>Fecha de Ingreso</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="reclusos-list">
+                    <!-- Los reclusos se agregarán aquí dinámicamente -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+<!-- Modal de Confirmación para eliminar un recluso -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteLabel">Confirmar Eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas eliminar este recluso?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Bootstrap JS (opcional si necesitas funcionalidad JS adicional de Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript para gestionar los reclusos -->
+    <script src="reclusos.js"></script>
+</body>
+</html>
